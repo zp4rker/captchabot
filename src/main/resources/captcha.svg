@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="300px" height="100px" viewBox="0 0 300 100" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 57 (83077) - https://sketch.com -->
+    <title>Artboard</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <linearGradient x1="100%" y1="44.4444444%" x2="0%" y2="55.5555556%" id="linearGradient-1">
+            <stop stop-color="#0091FF" offset="0%"></stop>
+            <stop stop-color="#FF001A" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="Artboard" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <rect id="Rectangle" fill="url(#linearGradient-1)" x="0" y="0" width="300" height="100"></rect>
+        <text id="a" font-family="sans-serif" font-size="25" font-weight="normal" fill="#FFFFFF">
+            <tspan x="40.125" y="59">$0</tspan>
+        </text>
+        <text id="b" font-family="sans-serif" font-size="25" font-weight="normal" fill="#FFFFFF">
+            <tspan x="107.358333" y="59">$1</tspan>
+        </text>
+        <text id="c" font-family="sans-serif" font-size="25" font-weight="normal" fill="#FFFFFF">
+            <tspan x="177.129167" y="59">$2</tspan>
+        </text>
+        <text id="d" font-family="sans-serif" font-size="25" font-weight="normal" fill="#FFFFFF">
+            <tspan x="244.025" y="59">$3</tspan>
+        </text>
+    </g>
+</svg>
