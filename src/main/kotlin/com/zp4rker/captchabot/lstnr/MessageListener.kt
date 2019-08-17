@@ -7,7 +7,7 @@ import net.dv8tion.jda.api.events.message.guild.GuildMessageReceivedEvent
 import net.dv8tion.jda.api.hooks.SubscribeEvent
 import java.util.concurrent.TimeUnit
 
-object MessageListener {
+object GuessListener {
     @SubscribeEvent
     fun onMessage(event: GuildMessageReceivedEvent) {
         val member = event.member ?: return
@@ -39,5 +39,15 @@ object MessageListener {
             event.guild.addRoleToMember(member, role).queueAfter(3, TimeUnit.SECONDS) { _ -> it.delete().queue() }
         }
         captchas.remove(captcha)
+    }
+}
+
+object MessageListener {
+    @SubscribeEvent
+    fun onMessage(event: GuildMessageReceivedEvent) {
+        if (event.channel.idLong != CaptchaBot.channel) return
+        if (event.author.isBot) return
+
+        event.message.delete().submitAfter(1, TimeUnit.SECONDS).exceptionally { null }
     }
 }
