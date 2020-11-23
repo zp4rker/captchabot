@@ -1,32 +1,28 @@
 package com.zp4rker.captchabot
 
-import com.zp4rker.captchabot.captcha.Captcha
-import com.zp4rker.captchabot.cmd.VerifyCommand
-import com.zp4rker.captchabot.lstnr.GuessListener
-import com.zp4rker.captchabot.lstnr.LeaveListener
-import com.zp4rker.captchabot.lstnr.MessageListener
-import com.zp4rker.core.discord.command.CommandHandler
-import com.zp4rker.core.discord.config.Config
-import net.dv8tion.jda.api.AccountType
-import net.dv8tion.jda.api.JDABuilder
-import net.dv8tion.jda.api.hooks.AnnotatedEventManager
+import com.zp4rker.captchabot.lstnr.JoinListener
+import com.zp4rker.disbot.Bot
 
-val config = Config.load("config.json")
-val captchas = mutableListOf<Captcha>()
+var role: Long = 0
+var channel: Long = 0
 
-fun main() {
-    val handler = CommandHandler(CaptchaBot.prefix)
-    handler.registerCommands(VerifyCommand)
+fun main(args: Array<String>) {
+    val token = args[0]
+    val prefix = args[1]
+    role = args[2].toLong()
+    channel = args[3].toLong()
 
-    JDABuilder(AccountType.BOT).setToken(CaptchaBot.token).run {
-        setEventManager(AnnotatedEventManager())
-        addEventListeners(handler, GuessListener, MessageListener, LeaveListener)
-    }.build()
-}
+    val bot = Bot.create {
+        name = "CaptchaBot"
+        version = "1.0.0-release"
 
-object CaptchaBot {
-    val token = config.optString("token") ?: ""
-    val prefix = config.getString("prefix") ?: "."
-    val role = config.getLong("role")
-    val channel = config.getLong("channel")
+        this.token = token
+        this.prefix = prefix
+    }
+
+    bot.addEventListener(JoinListener())
+
+    /*API.on<GuildMessageReceivedEvent>({ !it.author.isBot && it.channel.idLong == channel }) {
+        it.message.delete().submitAfter(1, TimeUnit.SECONDS).exceptionally { null }
+    }*/
 }

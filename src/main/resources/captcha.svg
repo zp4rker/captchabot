@@ -5,12 +5,12 @@
     <desc>Created with Sketch.</desc>
     <defs>
         <linearGradient x1="100%" y1="44.4444444%" x2="0%" y2="55.5555556%" id="linearGradient-1">
-            <stop stop-color="#0091FF" offset="0%"></stop>
-            <stop stop-color="#FF001A" offset="100%"></stop>
+            <stop stop-color="#0091FF" offset="0%"/>
+            <stop stop-color="#FF001A" offset="100%"/>
         </linearGradient>
     </defs>
     <g id="Artboard" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <rect id="Rectangle" fill="url(#linearGradient-1)" x="0" y="0" width="300" height="100"></rect>
+        <rect id="Rectangle" fill="url(#linearGradient-1)" x="0" y="0" width="300" height="100"/>
         <text id="a" font-family="sans-serif" font-size="25" font-weight="normal" fill="#FFFFFF">
             <tspan x="40.125" y="59">$0</tspan>
         </text>

@@ -1,6 +1,13 @@
+# global #
 .DS_Store
 .idea/
-out/
 *.iml
 target/
-/config.json
+build/
+.gradle/
+gradle/
+gradlew.*
+gradlew
+
+# project #
+logs/

@@ -1,0 +1,49 @@
+plugins {
+    id 'org.jetbrains.kotlin.jvm' version '1.4.10'
+    id 'com.github.johnrengelman.shadow' version '6.1.0'
+}
+
+group 'com.zp4rker'
+version '1.0.0-release'
+
+def disbotVersion = "1.2.1-release"
+def jdaVersion = "4.2.0_217"
+
+repositories {
+    mavenCentral()
+    mavenLocal()
+    maven {
+        url = "https://maven.zp4rker.com"
+    }
+    jcenter()
+}
+
+dependencies {
+    compile "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
+    compile "com.zp4rker:disbot:$disbotVersion"
+    compile("net.dv8tion:JDA:$jdaVersion") {
+        exclude module: "opus-java"
+    }
+    compile "org.apache.xmlgraphics:batik-transcoder:1.11"
+    compile "org.apache.xmlgraphics:batik-codec:1.11"
+}
+
+compileKotlin {
+    kotlinOptions.jvmTarget = 1.8
+}
+
+shadowJar {
+    archiveClassifier.set("")
+
+    configurations = [project.configurations.compile]
+
+    manifest {
+        attributes "Main-Class": "com.zp4rker.captchabot.CaptchaBotKt"
+        attributes "Implementation-Version": project.version
+
+        attributes "Disbot-Version": disbotVersion
+        attributes "JDA-Version": jdaVersion
+    }
+}
+
+build.dependsOn "shadowJar"

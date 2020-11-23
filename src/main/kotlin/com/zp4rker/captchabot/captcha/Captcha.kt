@@ -54,5 +54,5 @@ object CaptchaGenerator {
 
 }
 
-class Captcha(val code: String, val image: ByteArray, var user: Long = 0, var message: Long = 0, var attempts: Int = 0)
+class Captcha(val code: String, val image: ByteArray, var attempts: Int = 0)
 
